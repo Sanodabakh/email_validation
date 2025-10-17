@@ -28,3 +28,22 @@ spring:
         connectiontimout: 5000
         timeout: 3000
         writetimeout: 5000
+
+  application:
+    security:
+      jwt:
+        secret-key: b3d2a95f8b7c4a0e81e1b1a5b69d9e6e37fbd2f0a82cbe3b5a52c0e1f4d0a1b9
+        expiration: 864000
+    mailing:
+      frontend:
+        activation-url: http://localhost:4200/activate-account
+  server:
+    port: 8082
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    org.hibernate: WARN
+    org.springframework.boot.autoconfigure: ERROR
+

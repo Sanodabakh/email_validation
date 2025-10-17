@@ -24,12 +24,12 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @EntityListeners(AuditingEntityListener.class)
 public class User implements UserDetails, Principal {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Integer id;
 
     private String firstName;
@@ -43,7 +43,7 @@ public class User implements UserDetails, Principal {
 
     private String password;
 
-    @ManyToMany(mappedBy = "users", fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
 
     private boolean enabled;
@@ -106,7 +106,7 @@ public class User implements UserDetails, Principal {
         return enabled;
     }
 
-    private String fullName(){
+    public String fullName(){
         return firstName + " " + lastName;
     }
 }

@@ -13,8 +13,8 @@ import java.time.LocalDateTime;
 @Entity
 public class Token {
 
-    @jakarta.persistence.Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue
     private Integer Id;
     private String token;
     private LocalDateTime createdAt;
